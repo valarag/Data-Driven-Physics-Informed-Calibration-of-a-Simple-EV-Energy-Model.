@@ -1,1 +1,1 @@
-# Data-Driven-Physics-Informed-Calibration-of-a-Simple-EV-Energy-Model.
+# Data-Driven & Physics Informed Calibration of a Simple EV Energy Model.
