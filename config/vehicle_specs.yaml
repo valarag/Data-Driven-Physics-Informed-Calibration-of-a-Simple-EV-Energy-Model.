@@ -1,0 +1,8 @@
+vehicle: Renault Megane E-Tech
+mass_kg: 1793
+CdA_m2: 0.611
+Crr:
+ dry: 0.015
+ wet: 0.020
+gear_ratio: 9.0
+baseline_aux_kw: 2.0
