@@ -123,12 +123,14 @@ Tests the frozen hybrid model on two completely unseen trips. Reports MAPE, RMSE
 
 | Metric | Physics only | Hybrid model |
 |---|---|---|
-| Cross-trip MAPE | ~127% (untuned) / ~12% (tuned) | **4.77%** |
-| Test set MAPE | 70.21% | 7.36% |
-| Test set R² | 0.19 | **0.99** |
-| 90% CI coverage | — | **90.9%** |
+| Cross-trip MAPE | **9.12%** | **4.45%** |
+| Test set MAPE | **7.37%** | **5.29%** |
+| Test set R² | **0.9970** | **0.9989** |
+| 90% CI coverage | — | **81.8%** *(cross-trips)* / **75.0%** *(internal test set)* |
 
-> Physics MAPE drops to ~12% once Step 2 has generated `tuned_physics_params.json`. The hybrid model achieves <7% regardless, but accuracy is best when the full pipeline is run in order.
+> After Step 2 generates `tuned_physics_params.json`, the calibrated physics baseline reaches **9.12% cross-trip MAPE** on unseen trips.  
+> The hybrid residual-correction model further reduces this to **4.45% cross-trip MAPE** and achieves **5.29% MAPE** on the internal held-out test set.  
+> The final model also provides **90% confidence intervals**, with **81.8% coverage on unseen cross-trips**.
 
 ---
 
