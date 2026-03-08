@@ -104,9 +104,14 @@ CI_UPPER     = 0.95    # 95th percentile → upper confidence bound
 # HELPERS
 # ============================================================
 
-def mape(y_true, y_pred, eps=1e-9):
-    """Mean Absolute Percentage Error (ignores near-zero targets)."""
+def mape(y_true, y_pred, eps=0.3):
+    """Mean Absolute Percentage Error.
+    Ignores trips with |energy| < 0.3 kWh — regen-dominant or near-zero
+    sub-trips where percentage error is meaningless as a metric.
+    """
     mask = np.abs(y_true) > eps
+    if mask.sum() == 0:
+        return np.nan
     return np.mean(np.abs((y_true[mask] - y_pred[mask]) / y_true[mask])) * 100
 
 
@@ -197,9 +202,10 @@ print_section("Hyperparameter search  (5-fold CV on training set)")
 
 param_grid = {
     "max_depth"       : [2, 3],
-    "learning_rate"   : [0.05, 0.08, 0.10],
+    "learning_rate"   : [0.03, 0.05, 0.08],
     "n_estimators"    : [50, 80, 100],
-    "min_samples_leaf": [3, 5],
+    "min_samples_leaf": [5, 8, 12],   # stronger regularisation for 66-trip dataset
+    "subsample"       : [0.8, 1.0],   # stochastic GBR reduces overfitting
 }
 
 gs = GridSearchCV(

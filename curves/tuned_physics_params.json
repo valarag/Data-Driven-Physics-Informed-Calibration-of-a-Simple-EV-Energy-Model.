@@ -1,10 +1,10 @@
 {
-  "Cd0": 0.5050423606059741,
-  "Crr": 0.03457731567016325,
-  "k_cd": 0.0005458145568446404,
+  "Cd0": 0.2373823069636844,
+  "Crr": 0.011623446063534002,
+  "k_cd": 8.207902667798118e-05,
   "RHO": 1.225,
   "A": 2.22,
   "MASS": 1847,
   "G": 9.81,
-  "note": "Calibrated by calibrate_physics_model.py via L-BFGS-B"
+  "note": "Calibrated by calibrate_physics_model.py [FIXED] via L-BFGS-B. eta_sys from empirical P_mech/P_bat curve \u2014 true system efficiency."
 }
