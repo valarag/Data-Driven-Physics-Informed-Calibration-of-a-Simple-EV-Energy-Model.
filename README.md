@@ -1,6 +1,5 @@
 # Data-Driven Digital Twin — EV Energy Consumption Prediction
-**Phase 1: Static Calibration & Model Freezing**
-Final Year Project · Electrical / Mechanical / Computer Science
+**Phase 1**
 
 ---
 
@@ -9,8 +8,6 @@ Final Year Project · Electrical / Mechanical / Computer Science
 This project builds a **hybrid physics + machine learning digital twin** that predicts electric vehicle energy consumption from trip parameters (speed, grade, distance, regeneration). The model is designed for **pre-trip journey planning** — a driver inputs their route conditions and receives an accurate energy estimate with a 90% confidence interval.
 
 The vehicle modelled is a **Tesla Model 3 Long Range AWD** (mass 1847 kg, Cd 0.23, frontal area 2.22 m²).
-
-**Key result:** Hybrid model MAPE of **4.77%** on completely unseen validation trips, against a physics-only baseline of ~127% (untuned) / ~12% (tuned).
 
 ---
 
@@ -97,18 +94,7 @@ Fits a Gradient Boosting Regressor to the **specific residual** (residual per km
 
 ---
 
-### Step 5a — Physics model inspection (optional)
-```bash
-python ev_energy_model_validation_v3.py
-```
-**Reads:** `Tracking_data_efficiecny.csv`, efficiency curves
-**Produces:** diagnostic plots in `figs/`
-
-Standalone script to inspect the physics model in isolation — cumulative energy comparison, instantaneous power plots, and a multi-axis diagnostic panel. Useful for verifying the physics layer before running the full hybrid pipeline.
-
----
-
-### Step 5b — Final validation
+### Step 5 — Final validation
 ```bash
 python validate_hybrid_model.py
 ```
