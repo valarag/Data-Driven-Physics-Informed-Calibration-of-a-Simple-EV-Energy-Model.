@@ -321,21 +321,21 @@ fig2.savefig(OUT_FIG_DIR / "eda_efficiency_vs_speed.png", dpi=150)
 plt.close(fig2)
 print("[OK]  Saved eda_efficiency_vs_speed.png")
 
-# 3 — Efficiency vs elevation
-fig3, ax3 = plt.subplots(figsize=(8, 5))
-for tier, grp in trips_df.groupby("speed_tier"):
-    ax3.scatter(grp["elev_gain_m"], grp["efficiency_kWh_100km"],
-                label=tier, color=TIER_COLOR.get(tier, "#888"),
-                s=50, alpha=0.8, edgecolors="#0d1117", linewidth=0.4)
-ax3.set_xlabel("Elevation gain (m)")
-ax3.set_ylabel("Efficiency (kWh/100 km)")
-ax3.set_title("Trip efficiency vs elevation gain")
-ax3.legend()
-ax3.grid(True, alpha=0.3)
-plt.tight_layout()
-fig3.savefig(OUT_FIG_DIR / "eda_efficiency_vs_elevation.png", dpi=150)
-plt.close(fig3)
-print("[OK]  Saved eda_efficiency_vs_elevation.png")
+# 3 — Efficiency vs elevation (does not show useful data as of now)
+# fig3, ax3 = plt.subplots(figsize=(8, 5))
+# for tier, grp in trips_df.groupby("speed_tier"):
+#     ax3.scatter(grp["elev_gain_m"], grp["efficiency_kWh_100km"],
+#                 label=tier, color=TIER_COLOR.get(tier, "#888"),
+#                 s=50, alpha=0.8, edgecolors="#0d1117", linewidth=0.4)
+# ax3.set_xlabel("Elevation gain (m)")
+# ax3.set_ylabel("Efficiency (kWh/100 km)")
+# ax3.set_title("Trip efficiency vs elevation gain")
+# ax3.legend()
+# ax3.grid(True, alpha=0.3)
+# plt.tight_layout()
+# fig3.savefig(OUT_FIG_DIR / "eda_efficiency_vs_elevation.png", dpi=150)
+# plt.close(fig3)
+# print("[OK]  Saved eda_efficiency_vs_elevation.png")
 
 # 4 — Residual distribution + scatter
 fig4, (ax_hist, ax_sc) = plt.subplots(1, 2, figsize=(12, 5))
